@@ -3,8 +3,8 @@ local cfg = {
     notFound = false,
     oldVehicle = nil,
     tickTime = 1500,
-    vehicles = {
-        { model = 'adder', max = 10.0},
+    vehicles = { -- Add more cars here
+        { model = 'adder', max = 10.0}, 
         { model = 't20', max = 5.0}
     }
 }
@@ -17,7 +17,6 @@ CreateThread(function()
                 for i=1, #cfg.vehicles do
                     if GetEntityModel(vehicle) == GetHashKey(cfg.vehicles[i].model) then
                         cfg.active = true
-                        print(vehicle, cfg.vehicles[i].max)
                         SetVehicleMaxSpeed(vehicle, cfg.vehicles[i].max)
                         break
                     end
